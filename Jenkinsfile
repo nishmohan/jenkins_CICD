@@ -36,6 +36,9 @@ pipeline {
     }
 
     post {
+        always { 
+            echo "Post block running, result=${currentBuild.currentResult}" 
+        }
         success {
             emailext (
                 subject: "SUCCESS: Build #${BUILD_NUMBER}",
@@ -49,6 +52,20 @@ pipeline {
                 subject: "FAILURE: Build #${BUILD_NUMBER}",
                 body: "Build failed. View logs at ${BUILD_URL}",
                 to: "nishmohan86@gmail.com"
+            )
+        }
+        unstable {
+            emailext (
+                to: 'nishmohan86@gmail.com',
+                subject: "UNSTABLE: #${env.BUILD_NUMBER}",
+                body: "Build unstable. ${env.BUILD_URL}"
+            )
+        }
+        aborted {
+            emailext (
+                to: 'nishmohan86@gmail.com',
+                subject: "ABORTED: #${env.BUILD_NUMBER}",
+                body: "Build aborted. ${env.BUILD_URL}"
             )
         }
     }
