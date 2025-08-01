@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {           
             steps {
                  echo "Setting up Python environment and installing dependencies...."
-                sh 'python3 -m venv venv'
+                sh 'sudo python3 -m venv venv'
                 sh '. venv/bin/activate'
                 sh './$VENV/bin/pip install -r requirements.txt'
             }
