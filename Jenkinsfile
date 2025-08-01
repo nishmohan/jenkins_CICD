@@ -19,8 +19,8 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh './$VENV/bin/pip install pytest'
-                sh './$VENV/bin/pytest tests || true'
+                sh './venv/bin/pip install pytest'
+                sh './venv/bin/pytest tests || true'
             }
         }
 
