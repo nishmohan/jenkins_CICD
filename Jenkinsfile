@@ -40,6 +40,7 @@ pipeline {
             echo "Post block running, result=${currentBuild.currentResult}" 
         }
         success {
+            echo "Build completed successfully. View at ${BUILD_URL}"
             emailext (
                 subject: "SUCCESS: Build #${BUILD_NUMBER}",
                 body: "Build completed successfully. View at ${BUILD_URL}",
