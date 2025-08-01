@@ -47,7 +47,8 @@ pipeline {
                 replyTo: "barbadiya.mlal@gmail.com", 
                 mimeType: "text/plain",
                 body: "Build completed successfully. View at ${BUILD_URL}",
-                to: "hindaunvlog@gmail.com"
+                to: "hindaunvlog@gmail.com",
+                attachLog: true
             )
         }
 
