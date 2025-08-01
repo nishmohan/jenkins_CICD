@@ -45,7 +45,7 @@ pipeline {
                 subject: "SUCCESS: Build #${BUILD_NUMBER}",
                 from: "barbadiya.mlal@gmail.com",          // <= add this
                 replyTo: "barbadiya.mlal@gmail.com", 
-                  mimeType: "text/plain",
+                mimeType: "text/plain",
                 body: "Build completed successfully. View at ${BUILD_URL}",
                 to: "nishmohan86@gmail.com"
             )
